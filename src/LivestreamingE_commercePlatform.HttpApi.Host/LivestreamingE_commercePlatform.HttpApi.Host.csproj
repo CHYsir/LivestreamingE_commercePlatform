@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>LivestreamingE_commercePlatform</RootNamespace>
+    <PreserveCompilationReferences>true</PreserveCompilationReferences>
+    <UserSecretsId>LivestreamingE_commercePlatform-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="4.4.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LivestreamingE_commercePlatform.Application\LivestreamingE_commercePlatform.Application.csproj" />
+    <ProjectReference Include="..\LivestreamingE_commercePlatform.EntityFrameworkCore\LivestreamingE_commercePlatform.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\LivestreamingE_commercePlatform.HttpApi\LivestreamingE_commercePlatform.HttpApi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Logs\**" />
+    <Content Remove="Logs\**" />
+    <EmbeddedResource Remove="Logs\**" />
+    <None Remove="Logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Image\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>
