@@ -14,6 +14,9 @@
 
   <ItemGroup>
     <PackageReference Include="Hangfire.Core" Version="1.7.27" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.32" />
+    <PackageReference Include="NLog" Version="5.0.0-preview.3" />
+    <PackageReference Include="NLog.Config" Version="4.7.13" />
     <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
     <PackageReference Include="Snowflake.Core" Version="2.0.0" />
     <PackageReference Include="StackExchange.Redis" Version="2.2.88" />
