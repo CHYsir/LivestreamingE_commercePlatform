@@ -39,7 +39,7 @@ namespace LivestreamingE_commercePlatform.Goodses
 
         //商品表显示
         [HttpGet,Route("show")]
-        [Authorize]
+        //[Authorize]
         public async Task<List<GoodsDto>> Show()
         {
             var items=await _goods.GetListAsync();
