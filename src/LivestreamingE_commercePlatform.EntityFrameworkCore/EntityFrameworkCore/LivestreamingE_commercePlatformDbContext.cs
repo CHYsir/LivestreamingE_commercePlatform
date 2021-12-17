@@ -1,4 +1,5 @@
 ﻿using LivestreamingE_commercePlatform.Models;
+using LivestreamingE_commercePlatform.Models.Directbroadcastingroom;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -28,6 +29,7 @@ namespace LivestreamingE_commercePlatform.EntityFrameworkCore
         /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
         #region 添加DbSet<>属性
+        public DbSet<Room>  Rooms { get; set; }
         public DbSet<Seckill> Seckills { get; set; }
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<Goods> Goods { get; set; }
@@ -107,6 +109,12 @@ namespace LivestreamingE_commercePlatform.EntityFrameworkCore
 
             #region 添加映射
             //映射到数据库中（采用默认[Table("tb_xxxx")]则不用配置该映射）
+
+            builder.Entity<Room>(b =>
+            {
+                b.ToTable("tb_room");
+                b.ConfigureByConvention();
+            });
 
             builder.Entity<Seckill>(b =>
             {

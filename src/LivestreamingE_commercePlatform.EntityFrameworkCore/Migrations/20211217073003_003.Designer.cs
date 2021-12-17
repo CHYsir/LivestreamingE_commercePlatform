@@ -4,15 +4,17 @@ using LivestreamingE_commercePlatform.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
 namespace LivestreamingE_commercePlatform.Migrations
 {
     [DbContext(typeof(LivestreamingE_commercePlatformDbContext))]
-    partial class LivestreamingE_commercePlatformDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211217073003_003")]
+    partial class _003
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

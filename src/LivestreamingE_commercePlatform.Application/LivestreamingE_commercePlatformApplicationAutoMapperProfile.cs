@@ -23,6 +23,7 @@ namespace LivestreamingE_commercePlatform
             CreateMap<Goods, GoodsDto>();
             CreateMap<GoodsDto, Goods>();
 
+
         }
     }
 }

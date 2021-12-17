@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Volo.Abp.Domain.Entities.Auditing;
+using Volo.Abp.Application.Dtos;
 
-namespace LivestreamingE_commercePlatform.Models.Directbroadcastingroom
+namespace LivestreamingE_commercePlatform.CCTVreg
 {
-    //如果是手机端直播，推流只能是用：rtmp格式；拉流的话我们选择：FLV格式，
-
-    //直播间表
-    public  class Room: AuditedAggregateRoot<Guid>
+    public  class RoomDto: AuditedEntityDto<Guid>
     {
         public string RoomTitle { get; set; }    //直播间标题
         public string RoomDesc { get; set; }   //直播间描述/简介
