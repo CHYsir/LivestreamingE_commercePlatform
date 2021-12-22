@@ -118,14 +118,14 @@ namespace LivestreamingE_commercePlatform.Goodses
 
         }
 
-        //修改
-        [HttpPut, Route("editasync")]
-        public async Task<GoodsDto> EditAsync(GoodsDto dto)
-        {
-            var upd = await _goods.UpdateAsync(ObjectMapper.Map<GoodsDto, Goods>(dto));
-            return ObjectMapper.Map<Goods, GoodsDto>(upd);
+        ////修改
+        //[HttpPut, Route("editasync")]
+        //public async Task<GoodsDto> EditAsync(GoodsDto dto)
+        //{
+        //    var upd = await _goods.UpdateAsync(ObjectMapper.Map<GoodsDto, Goods>(dto));
+        //    return ObjectMapper.Map<Goods, GoodsDto>(upd);
 
-        }
+        //}
 
         //上传图片
         public string Img(IFormFile file)
@@ -141,6 +141,9 @@ namespace LivestreamingE_commercePlatform.Goodses
             return "http://localhost:8067/" + fname;//将能访问新文件的网址回传给前端
         }
 
-        
+        public Task<GoodsDto> EditAsync(GoodsDto dto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
