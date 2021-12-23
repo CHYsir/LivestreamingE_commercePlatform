@@ -125,7 +125,7 @@ namespace LivestreamingE_commercePlatform.Goodses
         //    var upd = await _goods.UpdateAsync(ObjectMapper.Map<GoodsDto, Goods>(dto));
         //    return ObjectMapper.Map<Goods, GoodsDto>(upd);
 
-        //}
+        //}   
 
         //上传图片
         public string Img(IFormFile file)
