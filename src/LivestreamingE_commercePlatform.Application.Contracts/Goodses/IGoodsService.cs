@@ -13,21 +13,28 @@ namespace LivestreamingE_commercePlatform.Goodses
         Task<List<GoodsDto>> Show();
 
         //显示查询分页
-        Tuple<List<TemporaryDto>, int,string> SelectList(string name, int pageIndex, int pageSize);
+        Tuple<List<TemporaryDto>, int> SelectList(int pageIndex, int pageSize, string name="");
 
         //添加
         Task<GoodsDto> CreateAsync(GoodsDto dto);
 
+        //批量添加
+        string GetUrl();
+
         //删除
-        Task<string>  DeleteAsync(Guid id);
+        Task<string> Delete(Guid id);
+
+        //批量删除
+        string Deleteps(string ids);  
 
         //反填
         Task<GoodsDto> FtAsync(Guid id);
 
         //修改
-        Task<GoodsDto> EditAsync(GoodsDto dto);
+        Task<GoodsDto> Update(GoodsDto dto);
 
         //上传图片
         string Img(IFormFile file);
+
     }
 }

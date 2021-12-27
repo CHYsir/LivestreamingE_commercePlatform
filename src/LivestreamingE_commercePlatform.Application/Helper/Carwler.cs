@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using LivestreamingE_commercePlatform.Goodses;
 using LivestreamingE_commercePlatform.Models;
 using System;
 using System.Collections.Generic;
@@ -72,17 +73,17 @@ namespace LivestreamingE_commercePlatform.Helper
             return html;
         }
 
-        public static Goods GoodsList(HtmlNode node)
+        public static GoodsJoinShowDto GoodsList(HtmlNode node)
         {
             //这是我所需要的赋值的实体类 用来接收 解析完成后的值
-            var good = new Goods();
+            var good = new GoodsJoinShowDto();
 
             //实例化一个 HtmlDocument对象
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(node.OuterHtml); //加载获取的 html节点
 
             //商品名称
-            string GoodsName = "/*/a";// 获取 //*[@id='all-list']/div[1]/div[2]/ul/li节点下  "/*/a" a标签
+            string GoodsName = "/*/div/div[2]/a/img";// 获取 //*[@id='all-list']/div[1]/div[2]/ul/li节点下  "/*/a" a标签
             HtmlNode GoodsNode = document.DocumentNode.SelectSingleNode(GoodsName);
 
             //Attributes 更够获取标签里的属性 例 title type 还有其他获取的方式 详细参考HtmlAgilityPack官网
@@ -90,11 +91,31 @@ namespace LivestreamingE_commercePlatform.Helper
             good.GoodsName = goodstext;//赋值给实体类属性 
 
             //商品价格
-            var Price = "/*/a"; //同理
+            var Price = "/*/div/div[3]/div"; //同理
             HtmlNode PriceNode = document.DocumentNode.SelectSingleNode(Price);
-            var PriceText = PriceNode.Attributes["href"].Value;
-            good.GoodsDescribe = PriceText;
+            var PriceText = PriceNode.InnerText;
+            var splitPrice = PriceText.Split("￥")[1];
+            good.GoodsPrice = Convert.ToDouble(splitPrice);
+
+
+            //商品描述
+            var GoodsDescribe= "/*/div/div[2]/a/img";  //同理
+            HtmlNode GoodsDescribeNode = document.DocumentNode.SelectSingleNode(GoodsDescribe);
+            var GoodsDescribeValue = GoodsDescribeNode.Attributes["alt"].Value;
+            good.GoodsDescribe = GoodsDescribeValue;
+
+            //商品图片
+            var Img = "/*/div/div[2]/a/img";  //同理
+            HtmlNode ImgNode = document.DocumentNode.SelectSingleNode(Img);
+            var ImgText = ImgNode.Attributes["src"].Value;
+            good.ImgUrl = ImgText;
+
+            var ImgName = "/*/div/div[2]/a/img";   //同理
+            HtmlNode ImgNameNode = document.DocumentNode.SelectSingleNode(ImgName);
+            var ImgNameText = ImgNameNode.Attributes["title"].Value;
+            good.ImgName = ImgNameText;
             //以上我只赋值了两个我所需要的，根据自己的需求 可以追加 实体 属性赋值
+
             return good;
         }
 

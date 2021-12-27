@@ -43,7 +43,7 @@ namespace LivestreamingE_commercePlatform.Users
         }
 
         //注册
-        [HttpPost]
+        [HttpPost,Route("zc")]
         public int UsersRegister(CreateUpdateUserDto usersList)
         {
             var list = _users.FirstOrDefault(x => x.Phone == usersList.Phone);
@@ -134,35 +134,35 @@ namespace LivestreamingE_commercePlatform.Users
 
 
         //手机登录
-        public ResultT<int> phonelogin(UserLoginDto usersLogin)
-        {
-            //取值
-            string code = Encoding.Default.GetString(Cache.Get("PhoneCode" + usersLogin.usersPhone));
+        //public ResultT<int> phonelogin(UserLoginDto usersLogin)
+        //{
+        //    //取值
+        //    string code = Encoding.Default.GetString(Cache.Get("PhoneCode" + usersLogin.usersPhone));
 
-            if (code == "" || code == null)
-            {
-                return new ResultT<int>
-                {
-                    State = (int)CommunalEnum.Loggingstatus.codeexpired,
-                    Message = "验证码过期"
-                }; //验证码过期
-            }
-            if (code != usersLogin.ValidateCode)
-            {
-                return new ResultT<int>
-                {
-                    State = (int)CommunalEnum.Loggingstatus.codeerror,
-                    Message = "验证码错误"
-                }; //验证码错误
-            }
+        //    if (code == "" || code == null)
+        //    {
+        //        return new ResultT<int>
+        //        {
+        //            State = (int)CommunalEnum.Loggingstatus.codeexpired,
+        //            Message = "验证码过期"
+        //        }; //验证码过期
+        //    }
+        //    if (code != usersLogin.ValidateCode)
+        //    {
+        //        return new ResultT<int>
+        //        {
+        //            State = (int)CommunalEnum.Loggingstatus.codeerror,
+        //            Message = "验证码错误"
+        //        }; //验证码错误
+        //    }
 
-            return new ResultT<int>
-            {
-                State = (int)CommunalEnum.Loggingstatus.successfully,
-                Message = "登录成功"
-            }; //登录成功
+        //    return new ResultT<int>
+        //    {
+        //        State = (int)CommunalEnum.Loggingstatus.successfully,
+        //        Message = "登录成功"
+        //    }; //登录成功
 
-        }
+        //}
 
 
     }

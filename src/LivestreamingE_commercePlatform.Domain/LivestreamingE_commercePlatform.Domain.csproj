@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LivestreamingE_commercePlatform.Domain.Shared\LivestreamingE_commercePlatform.Domain.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Volo.Abp.Emailing" Version="4.4.4" />
     <PackageReference Include="Volo.Abp.Identity.Domain" Version="4.4.4" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="4.4.4" />
@@ -22,6 +18,10 @@
     <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="4.4.4" />
     <PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="4.4.4" />
     <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="4.4.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LivestreamingE_commercePlatform.Domain.Shared\LivestreamingE_commercePlatform.Domain.Shared.csproj" />
   </ItemGroup>
 
 </Project>
